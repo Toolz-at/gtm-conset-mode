@@ -34,7 +34,6 @@ jobs:
     - name: Update YML file
       run: |
         sha=$(git rev-parse HEAD)
-        new_version="
 
     # - sha: $sha
     #   changeNotes: |
