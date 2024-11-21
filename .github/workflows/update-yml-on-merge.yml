@@ -2,11 +2,11 @@ name: Update YML on PR Merge
 
 on:
   pull_request:
-    types: [opened]
+    types: [closed]
 
 jobs:
   update-yml:
-    # if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -44,7 +44,6 @@ jobs:
 
     - name: see file metadata
       run: cat metadata.yaml
-
 
     # Fazer commit e push das mudanças
     - name: Commit and push changes
