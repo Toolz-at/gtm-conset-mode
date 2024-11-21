@@ -54,4 +54,4 @@ jobs:
       run: |
         git add metadata.yaml
         git commit -m "Add version entry for PR #${{ env.number }}: ${{ env.title }}"
-        git push origin ${{ github.ref_name }}
+        git push origin ${{ github.base_ref }}
