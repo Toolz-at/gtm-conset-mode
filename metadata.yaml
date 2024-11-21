@@ -1,6 +1,5 @@
 homepage: "https://toolz.at/?utm_source=google_gtm"
 documentation: "https://toolz.at/?utm_source=google_gtm"
 versions:
-  # Older versions
   - sha: 207635171ff7bc2280d6f4ee58238bf6dd836224
     changeNotes: Consent Mode
