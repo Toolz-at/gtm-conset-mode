@@ -2,7 +2,7 @@ name: Update YML on PR Merge
 
 on:
   pull_request:
-    types: [opened]
+    types: [closed]
 
 jobs:
   update-yml:
@@ -44,7 +44,6 @@ jobs:
 
     - name: see file metadata
       run: cat metadata.yaml
-
 
     # Fazer commit e push das mudanças
     - name: Commit and push changes
