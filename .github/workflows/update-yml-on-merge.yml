@@ -1,12 +1,12 @@
 name: Update YML on PR Merge
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types: [closed]
 
 jobs:
   update-yml:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
