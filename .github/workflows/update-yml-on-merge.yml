@@ -37,6 +37,9 @@ jobs:
         new_version="  - sha: ${{ env.number }}\n    changeNotes: \"PR #${{ env.number }}: ${{ env.title }}\""
         sed -i "/^versions:/a$new_version" metadata.yaml
 
+    - name: see file metadata
+      run: echo metadata.yaml
+
     # Fazer commit e push das mudanças
     - name: Commit and push changes
       run: |
