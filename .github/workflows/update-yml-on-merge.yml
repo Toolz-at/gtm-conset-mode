@@ -35,11 +35,11 @@ jobs:
     - name: Update YML file
       run: |
         new_version="  - sha: ${{ env.number }}\n    changeNotes: \"PR #${{ env.number }}: ${{ env.title }}\""
-        sed -i "/^versions:/a$new_version" metadata.yml
+        sed -i "/^versions:/a$new_version" metadata.yaml
 
     # Fazer commit e push das mudanças
     - name: Commit and push changes
       run: |
-        git add metadata.yml
+        git add metadata.yaml
         git commit -m "Add version entry for PR #${{ env.number }}: ${{ env.title }}"
         git push
