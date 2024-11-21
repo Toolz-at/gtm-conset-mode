@@ -1,12 +1,12 @@
 name: Update YML on PR Merge
 
 on:
-  pull_request:
-    types: [closed]
+  push:
+    branches:
+      - main
 
 jobs:
   update-yml:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +25,7 @@ jobs:
       id: extract_pr_info
       run: |
         echo "title=$(echo '${{ github.event.pull_request.title }}')" >> $GITHUB_ENV
-        echo "sha=$(echo '${{ github.event.pull_request.number }}')" >> $GITHUB_ENV
+        echo "number=$(echo '${{ github.event.pull_request.number }}')" >> $GITHUB_ENV
 
     # Atualizar o arquivo YML
     - name: Update YML file
