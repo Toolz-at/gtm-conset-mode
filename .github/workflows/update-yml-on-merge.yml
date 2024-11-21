@@ -1,11 +1,8 @@
 name: Update YML on PR Merge
 
 on:
-  push:
-    branches:
-      - main
-  # pull_request:
-  #   types: [closed]
+  pull_request:
+    types: [opened]
 
 jobs:
   update-yml:
@@ -20,8 +17,10 @@ jobs:
     # Configura o Git para commits
     - name: Setup Git
       run: |
-        git config user.name "GitHub Actions Bot"
-        git config user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git fetch origin ${{ github.base_ref }}
+        git checkout ${{ github.base_ref }}
 
     # Extrair informações da PR
     - name: Extract PR Information
@@ -29,24 +28,27 @@ jobs:
       run: |
         echo "title=$(echo '${{ github.event.pull_request.title }}')" >> $GITHUB_ENV
         echo "number=$(echo '${{ github.event.pull_request.number }}')" >> $GITHUB_ENV
+        echo "sha=$(echo '${{ github.sha }}')" >> $GITHUB_ENV
+
+    - name: see file metadata
+      run: |
+        ls -la
+        cat metadata.yaml
+
 
     # Atualizar o arquivo YML
     - name: Update YML file
       run: |
-        sha=$(git rev-parse HEAD)
-        echo ${{ env.title }}
-        echo ${{ env.number }}
-        echo go
+        new_version="\  - sha: ${{ env.sha }}\n    changeNotes: \"PR #${{ env.number }}: ${{ env.title }}\""
+        sed -i "/^versions:/a$new_version" metadata.yaml
 
-    # - sha: $sha
-    #   changeNotes: |
-    #     sha=$(git rev-parse HEAD)
-    #     new_version="  - sha: $sha\n    changeNotes: \"PR #${{ env.number }}: ${{ env.title }}\""
-    #     sed -i "/^versions:/a$new_version" path/to/your/file.yml
+    - name: see file metadata
+      run: cat metadata.yaml
+
 
     # Fazer commit e push das mudanças
     - name: Commit and push changes
       run: |
-        git add metadata.yml
+        git add metadata.yaml
         git commit -m "Add version entry for PR #${{ env.number }}: ${{ env.title }}"
-        git push
+        git push origin ${{ github.base_ref }}
