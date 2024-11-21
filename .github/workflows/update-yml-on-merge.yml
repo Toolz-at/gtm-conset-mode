@@ -9,7 +9,7 @@ on:
 
 jobs:
   update-yml:
-    # if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -36,11 +36,11 @@ jobs:
         sha=$(git rev-parse HEAD)
         new_version="
 
-    - sha: $sha
-      changeNotes: |
-        sha=$(git rev-parse HEAD)
-        new_version="  - sha: $sha\n    changeNotes: \"PR #${{ env.number }}: ${{ env.title }}\""
-        sed -i "/^versions:/a$new_version" path/to/your/file.yml
+    # - sha: $sha
+    #   changeNotes: |
+    #     sha=$(git rev-parse HEAD)
+    #     new_version="  - sha: $sha\n    changeNotes: \"PR #${{ env.number }}: ${{ env.title }}\""
+    #     sed -i "/^versions:/a$new_version" path/to/your/file.yml
 
     # Fazer commit e push das mudanças
     - name: Commit and push changes
