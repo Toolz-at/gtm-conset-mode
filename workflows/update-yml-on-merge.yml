@@ -1,0 +1,47 @@
+name: Update YML on PR Merge
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  update-yml:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout o repositório
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Configura o Git para commits
+    - name: Setup Git
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "actions@github.com"
+
+    # Extrair informações da PR
+    - name: Extract PR Information
+      id: extract_pr_info
+      run: |
+        echo "title=$(echo '${{ github.event.pull_request.title }}')" >> $GITHUB_ENV
+        echo "sha=$(echo '${{ github.event.pull_request.number }}')" >> $GITHUB_ENV
+
+    # Atualizar o arquivo YML
+    - name: Update YML file
+      run: |
+        sha=$(git rev-parse HEAD)
+        new_version="
+
+    - sha: $sha
+      changeNotes: |
+        sha=$(git rev-parse HEAD)
+        new_version="  - sha: $sha\n    changeNotes: \"PR #${{ env.number }}: ${{ env.title }}\""
+        sed -i "/^versions:/a$new_version" path/to/your/file.yml
+
+    # Fazer commit e push das mudanças
+    - name: Commit and push changes
+      run: |
+        git add metadata.yml
+        git commit -m "Add version entry for PR #${{ env.number }}: ${{ env.title }}"
+        git push
