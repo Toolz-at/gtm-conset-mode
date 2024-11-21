@@ -2,10 +2,10 @@ name: Update YML on PR Merge
 
 on:
   push:
-    branches:
-      - main
-  # pull_request:
-  #   types: [closed]
+    # branches:
+    #   - main
+  pull_request:
+    types: [closed]
 
 jobs:
   update-yml:
