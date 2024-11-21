@@ -32,7 +32,8 @@ jobs:
         echo "sha=$(git rev-parse HEAD)" >> $GITHUB_ENV
 
     - name: see file metadata
-      run: echo metadata.yaml >> $GITHUB_OUTPUT
+      run: echo "metadata=metadata.yaml" >> $GITHUB_OUTPUT
+
 
     # Atualizar o arquivo YML
     - name: Update YML file
@@ -41,7 +42,7 @@ jobs:
         sed -i "/^versions:/a$new_version" metadata.yaml
 
     - name: see file metadata
-      run: echo metadata.yaml >> $GITHUB_OUTPUT
+      run: echo "metadata=metadata.yaml" >> $GITHUB_OUTPUT
 
     # Fazer commit e push das mudanças
     - name: Commit and push changes
