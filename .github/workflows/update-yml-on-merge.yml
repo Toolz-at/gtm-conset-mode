@@ -32,7 +32,9 @@ jobs:
         echo "sha=$(git rev-parse HEAD)" >> $GITHUB_ENV
 
     - name: see file metadata
-      run: echo "metadata=metadata.yaml" >> $GITHUB_OUTPUT
+      run: |
+        ls -la
+        echo "metadata=metadata.yaml" >> $GITHUB_OUTPUT
 
 
     # Atualizar o arquivo YML
