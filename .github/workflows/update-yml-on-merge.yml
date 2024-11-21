@@ -34,7 +34,7 @@ jobs:
     - name: see file metadata
       run: |
         ls -la
-        echo "metadata=metadata.yaml" >> $GITHUB_OUTPUT
+        cat metadata.yaml
 
 
     # Atualizar o arquivo YML
@@ -44,7 +44,8 @@ jobs:
         sed -i "/^versions:/a$new_version" metadata.yaml
 
     - name: see file metadata
-      run: echo "metadata=metadata.yaml" >> $GITHUB_OUTPUT
+      run: cat metadata.yaml
+
 
     # Fazer commit e push das mudanças
     - name: Commit and push changes
