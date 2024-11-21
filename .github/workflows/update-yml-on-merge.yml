@@ -36,6 +36,7 @@ jobs:
         sha=$(git rev-parse HEAD)
         echo ${{ env.title }}
         echo ${{ env.number }}
+        echo go
 
     # - sha: $sha
     #   changeNotes: |
