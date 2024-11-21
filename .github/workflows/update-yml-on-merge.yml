@@ -31,6 +31,9 @@ jobs:
         echo "number=$(echo '${{ github.event.pull_request.number }}')" >> $GITHUB_ENV
         echo "sha=$(git rev-parse HEAD)" >> $GITHUB_ENV
 
+    - name: see file metadata
+      run: echo < metadata.yaml
+
     # Atualizar o arquivo YML
     - name: Update YML file
       run: |
