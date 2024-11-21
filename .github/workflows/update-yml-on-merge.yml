@@ -34,15 +34,8 @@ jobs:
     # Atualizar o arquivo YML
     - name: Update YML file
       run: |
-        echo ${{ env.title }}
-        echo ${{ env.number }}
-        echo ${{ env.sha }}
-
-    # - sha: $sha
-    #   changeNotes: |
-    #     sha=$(git rev-parse HEAD)
-    #     new_version="  - sha: $sha\n    changeNotes: \"PR #${{ env.number }}: ${{ env.title }}\""
-    #     sed -i "/^versions:/a$new_version" path/to/your/file.yml
+        new_version="  - sha: ${{ env.number }}\n    changeNotes: \"PR #${{ env.number }}: ${{ env.title }}\""
+        sed -i "/^versions:/a$new_version" metadata.yml
 
     # Fazer commit e push das mudanças
     - name: Commit and push changes
