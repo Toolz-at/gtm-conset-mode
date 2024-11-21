@@ -40,7 +40,7 @@ jobs:
     # Atualizar o arquivo YML
     - name: Update YML file
       run: |
-        new_version="\n    - sha: ${{ env.sha }}\n      changeNotes: \"PR #${{ env.number }}: ${{ env.title }}\""
+        new_version="\    - sha: ${{ env.sha }}\n      changeNotes: \"PR #${{ env.number }}: ${{ env.title }}\""
         sed -i "/^versions:/a$new_version" metadata.yaml
 
     - name: see file metadata
