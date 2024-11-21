@@ -46,9 +46,16 @@ jobs:
     - name: see file metadata
       run: cat metadata.yaml
 
-    # Fazer commit e push das mudanças
-    - name: Commit and push changes
-      run: |
-        git add metadata.yaml
-        git commit -m "Add version entry for PR #${{ env.number }}: ${{ env.title }}"
-        git push origin ${{ github.base_ref }}
+
+    - uses: EndBug/add-and-commit@v9
+      with:
+        message: "Add version entry for PR #${{ env.number }}: ${{ env.title }}"
+        committer_name: GitHub Actions
+        committer_email: actions@github.com
+
+    # # Fazer commit e push das mudanças
+    # - name: Commit and push changes
+    #   run: |
+    #     git add metadata.yaml
+    #     git commit -m "Add version entry for PR #${{ env.number }}: ${{ env.title }}"
+    #     git push origin ${{ github.base_ref }}
