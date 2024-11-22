@@ -1,3 +1,5 @@
 homepage: "https://toolz.at/?utm_source=google_gtm"
 documentation: "https://toolz.at/?utm_source=google_gtm"
 versions:
+  - sha: 4f0c3abdf104d949d29ecc8aabf9764a7cee4dfb
+    changeNotes: "PR #14: Consent mode GTM"
