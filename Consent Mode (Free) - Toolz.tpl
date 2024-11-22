@@ -18,9 +18,12 @@ ___INFO___
     "TAG_MANAGEMENT",
     "ADVERTISING",
     "UTILITY",
-    "GDPR",
-    "LGPD",
-    "CCPA"
+    "ANALYTICS",
+    "AFFILIATE_MARKETING",
+    "CONVERSIONS",
+    "PERSONALIZATION",
+    "REMARKETING",
+    "SESSION_RECORDING"
   ],
   "brand": {
     "id": "brand_dummy",
