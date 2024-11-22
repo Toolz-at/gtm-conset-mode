@@ -17,7 +17,10 @@ ___INFO___
   "categories": [
     "TAG_MANAGEMENT",
     "ADVERTISING",
-    "UTILITY"
+    "UTILITY",
+    "GDPR",
+    "LGPD",
+    "CCPA"
   ],
   "brand": {
     "id": "brand_dummy",
