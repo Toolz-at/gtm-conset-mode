@@ -4,6 +4,8 @@ on:
   pull_request:
     types: [closed]
 
+permissions: write-all
+
 jobs:
   update-yml:
     if: github.event.pull_request.merged == true
