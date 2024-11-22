@@ -1,15 +1,14 @@
 name: Update YML on PR Merge
 
 on:
-  push:
   pull_request:
-    # types: [closed]
+    types: [closed]
 
 permissions: write-all
 
 jobs:
   update-yml:
-    # if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
