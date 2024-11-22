@@ -1,5 +1,7 @@
 homepage: "https://toolz.at/?utm_source=google_gtm"
 documentation: "https://toolz.at/?utm_source=google_gtm"
 versions:
+  - sha: a8bd966d26ff81c5d6a7b1ffee47295dbe32325e
+    changeNotes: "PR #15: Adding readme and refect code"
   - sha: 4f0c3abdf104d949d29ecc8aabf9764a7cee4dfb
     changeNotes: "PR #14: Consent mode GTM"
