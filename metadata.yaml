@@ -1,6 +1,8 @@
 homepage: "https://toolz.at/?utm_source=google_gtm"
 documentation: "https://toolz.at/?utm_source=google_gtm"
 versions:
+  - sha: d79dbdf2ef911ab424e9dc6899a41ce3930374bd
+    changeNotes: "PR #17: Fix categories"
   - sha: ea41b105f3bde525085a4277f2952cf6f9ee397d
     changeNotes: "PR #16: Adding Categories"
   - sha: a8bd966d26ff81c5d6a7b1ffee47295dbe32325e
