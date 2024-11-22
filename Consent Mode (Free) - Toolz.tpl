@@ -14,6 +14,11 @@ ___INFO___
   "version": 1,
   "securityGroups": [],
   "displayName": "Consent Mode (Free) - Toolz",
+  "categories": [
+    "TAG_MANAGEMENT",
+    "ADVERTISING",
+    "UTILITY"
+  ],
   "brand": {
     "id": "brand_dummy",
     "displayName": "",
@@ -221,12 +226,12 @@ const main = (consent) => {
   gtagSet('ads_data_redaction', data.ads_data_redaction);
   gtagSet('url_passthrough', data.url_passthrough);
   gtagSet('developer_id.dMTJmNz', true);
-  
+
   const currentConsentMode = localStorage.getItem('consentMode');
   if(currentConsentMode) {
     return;
   }
- 
+
    // Set default consent state(s)
   const consentMode = {
     functionality_storage: consent.necessary,
@@ -237,10 +242,10 @@ const main = (consent) => {
     analytics_storage: consent.analytics,
     personalization_storage: consent.preferences,
   };
-  
+
   localStorage.setItem('consentMode', JSON.stringify(consentMode));
 
-  
+
   setDefaultConsentState(consentMode);
 };
 
@@ -751,5 +756,3 @@ setup: ''
 ___NOTES___
 
 Created on 11/21/2024, 11:26:53 PM
-
-
