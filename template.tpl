@@ -79,7 +79,8 @@ ___TEMPLATE_PARAMETERS___
             {
               "type": "NON_EMPTY"
             }
-          ]
+          ],
+          "help": "Cookies essential for the website to function"
         },
         "isUnique": false
       },
@@ -99,7 +100,8 @@ ___TEMPLATE_PARAMETERS___
             }
           ],
           "simpleValueType": true,
-          "defaultValue": "denied"
+          "defaultValue": "denied",
+          "help": "Used for marketing and advertising purposes"
         },
         "isUnique": false
       },
@@ -119,7 +121,8 @@ ___TEMPLATE_PARAMETERS___
             }
           ],
           "simpleValueType": true,
-          "defaultValue": "denied"
+          "defaultValue": "denied",
+          "help": "Collect data for analysis and website improvement"
         },
         "isUnique": false
       },
@@ -139,7 +142,8 @@ ___TEMPLATE_PARAMETERS___
             }
           ],
           "simpleValueType": true,
-          "defaultValue": "denied"
+          "defaultValue": "denied",
+          "help": "Store user preferences for personalization"
         },
         "isUnique": false
       }
@@ -148,7 +152,8 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "NON_EMPTY"
       }
-    ]
+    ],
+    "help": "Default settings for using consent mode (Required)"
   },
   {
     "type": "SELECT",
@@ -170,7 +175,8 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "NON_EMPTY"
       }
-    ]
+    ],
+    "help": "Reduces the amount of personal data included in network requests made by Google Ads and Floodlight tags"
   },
   {
     "type": "SELECT",
@@ -192,34 +198,47 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "NON_EMPTY"
       }
-    ]
+    ],
+    "help": "allows additional information (such as ad click IR and session IDs) to be sent in destination URLs."
   }
 ]
 
 
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
+const log = require('logToConsole');
 const setDefaultConsentState = require('setDefaultConsentState');
+const encodeUriComponent = require('encodeUriComponent');
 const updateConsentState = require('updateConsentState');
 const getCookieValues = require('getCookieValues');
 const gtagSet = require('gtagSet');
 const queryPermission = require('queryPermission');
 const injectScript = require('injectScript');
 const localStorage = require('localStorage');
+const JSON = require('JSON');
+
 const defaultSettings = data.defaultSettings[0];
 
-const JSON = {
-    stringify: function(obj) {
-      var json = [];
-      for (var key in obj) {
-        if (obj.hasOwnProperty(key)) {
-          json.push('"' + key + '": "' + obj[key] + '"');
-        }
-      }
-      return '{' + json.join(', ') + '}';
-    }
-};
+function getCurrentSettings(consent) {
+  const currentConsentMode = localStorage.getItem('consentMode');
 
+  // Set current consent state(s)
+  if(currentConsentMode) {
+    return JSON.parse(currentConsentMode);
+  }
+
+   // Set default consent state(s)
+  return {
+    functionality_storage: consent.necessary,
+    security_storage: consent.necessary,
+    ad_storage: consent.marketing,
+    ad_user_data: consent.marketing,
+    ad_personalization: consent.marketing,
+    analytics_storage: consent.analytics,
+    personalization_storage: consent.preferences,
+  };
+
+}
 
 /*
  *   Executes the default command, sets the developer ID, and sets up the consent
@@ -233,31 +252,32 @@ const main = (consent) => {
   gtagSet('url_passthrough', data.url_passthrough);
   gtagSet('developer_id.dMTJmNz', true);
 
+
+  const currentConsentMode = localStorage.getItem('consentMode');
+  if(currentConsentMode) {
+    return;
+  }
+
+
   const currentConsentMode = localStorage.getItem('consentMode');
   if(currentConsentMode) {
     return;
   }
 
    // Set default consent state(s)
-  const consentMode = {
-    functionality_storage: consent.necessary,
-    security_storage: consent.necessary,
-    ad_storage: consent.marketing,
-    ad_user_data: consent.marketing,
-    ad_personalization: consent.marketing,
-    analytics_storage: consent.analytics,
-    personalization_storage: consent.preferences,
-  };
+  const consentMode = getCurrentSettings(consent);
 
   localStorage.setItem('consentMode', JSON.stringify(consentMode));
 
-
+  consentMode.wait_for_update = 500;
   setDefaultConsentState(consentMode);
 };
 
 main(defaultSettings);
 
-let scriptUrl = 'https://cdn.toolz.at/banner-cmp.js?banner_id=' + data.consetModeID;
+let scriptUrl = 'https://cdn.toolz.at/banner-cmp.js';
+scriptUrl += '?banner_id=' + encodeUriComponent(data.consetModeID);
+scriptUrl += '&utm_source=gtm';
 
 if (queryPermission('inject_script', scriptUrl)) {
   injectScript(scriptUrl, data.gtmOnSuccess, data.gtmOnFailure);
@@ -747,6 +767,24 @@ ___WEB_PERMISSIONS___
       "isEditedByUser": true
     },
     "isRequired": true
+  },
+  {
+    "instance": {
+      "key": {
+        "publicId": "logging",
+        "versionId": "1"
+      },
+      "param": [
+        {
+          "key": "environments",
+          "value": {
+            "type": 1,
+            "string": "debug"
+          }
+        }
+      ]
+    },
+    "isRequired": true
   }
 ]
 
@@ -761,4 +799,4 @@ setup: ''
 
 ___NOTES___
 
-Created on 11/21/2024, 11:26:53 PM
+Created on 11/23/2024, 4:21:52 PM
