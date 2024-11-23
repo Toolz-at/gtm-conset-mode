@@ -79,7 +79,8 @@ ___TEMPLATE_PARAMETERS___
             {
               "type": "NON_EMPTY"
             }
-          ]
+          ],
+          "help": "Cookies essential for the website to function"
         },
         "isUnique": false
       },
@@ -99,7 +100,8 @@ ___TEMPLATE_PARAMETERS___
             }
           ],
           "simpleValueType": true,
-          "defaultValue": "denied"
+          "defaultValue": "denied",
+          "help": "Used for marketing and advertising purposes"
         },
         "isUnique": false
       },
@@ -119,7 +121,8 @@ ___TEMPLATE_PARAMETERS___
             }
           ],
           "simpleValueType": true,
-          "defaultValue": "denied"
+          "defaultValue": "denied",
+          "help": "Collect data for analysis and website improvement"
         },
         "isUnique": false
       },
@@ -139,7 +142,8 @@ ___TEMPLATE_PARAMETERS___
             }
           ],
           "simpleValueType": true,
-          "defaultValue": "denied"
+          "defaultValue": "denied",
+          "help": "Store user preferences for personalization"
         },
         "isUnique": false
       }
@@ -170,7 +174,8 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "NON_EMPTY"
       }
-    ]
+    ],
+    "help": "Reduces the amount of personal data included in network requests made by Google Ads and Floodlight tags"
   },
   {
     "type": "SELECT",
@@ -192,7 +197,8 @@ ___TEMPLATE_PARAMETERS___
       {
         "type": "NON_EMPTY"
       }
-    ]
+    ],
+    "help": "allows additional information (such as ad click IR and session IDs) to be sent in destination URLs."
   }
 ]
 
@@ -219,7 +225,6 @@ const JSON = {
       return '{' + json.join(', ') + '}';
     }
 };
-
 
 /*
  *   Executes the default command, sets the developer ID, and sets up the consent
@@ -250,6 +255,9 @@ const main = (consent) => {
   };
 
   localStorage.setItem('consentMode', JSON.stringify(consentMode));
+
+
+
 
 
   setDefaultConsentState(consentMode);
@@ -761,4 +769,4 @@ setup: ''
 
 ___NOTES___
 
-Created on 11/21/2024, 11:26:53 PM
+Created on 11/23/2024, 1:51:32 PM
