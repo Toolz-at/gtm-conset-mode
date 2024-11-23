@@ -1,6 +1,8 @@
 homepage: "https://toolz.at/?utm_source=google_gtm"
 documentation: "https://toolz.at/?utm_source=google_gtm"
 versions:
+  - sha: d68b31a936cd94f0ea75feaff25ac901ad46bd98
+    changeNotes: "PR #22: adding help text"
   - sha: 85ccd88100d3e7f3d0bc85e18a6c4a6bef525b35
     changeNotes: "PR #18: template.tpl"
   - sha: d79dbdf2ef911ab424e9dc6899a41ce3930374bd
