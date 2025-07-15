@@ -53,7 +53,7 @@ The main file includes the following functions and methods:
 
 ## References
 
-For more information, refer to the official documentation at [Toolz.at](https://toolz.at/).
+For more information, refer to the official documentation at [consentmode.toolz.at](https://consentmode.toolz.at).
 
 ---
 
