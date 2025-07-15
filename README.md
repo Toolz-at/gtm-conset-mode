@@ -1,7 +1,7 @@
 
 # Consent Mode Banner Template
 
-This repository contains the Consent Mode Banner template for Google Tag Manager (GTM), using the free tool provided by [Toolz.at](https://toolz.at/).
+This repository contains the Consent Mode Banner template for Google Tag Manager (GTM), using the free tool provided by [Toolz](https://toolz.at).
 
 ## Description
 
@@ -21,7 +21,7 @@ The template implements functionalities to manage user consent states, set defau
 
 ## Dependencies
 
-- [Toolz.at Consent Management Platform](https://toolz.at/) library.
+- [Consent Management Platform](https://consentmode.toolz.at) library.
 
 ## Code Structure
 
@@ -53,7 +53,7 @@ The main file includes the following functions and methods:
 
 ## References
 
-For more information, refer to the official documentation at [consentmode.toolz.at](https://consentmode.toolz.at).
+For more information, refer to the official documentation at [Consent Mode](https://consentmode.toolz.at).
 
 ---
 
