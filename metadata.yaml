@@ -1,6 +1,8 @@
 homepage: "https://consentmode.toolz.at/?utm_source=google_gtm"
 documentation: "https://consentmode.toolz.at/?utm_source=google_gtm"
 versions:
+  - sha: 2d7abd6e518be57d657a5f4b0b1a2952b2769955
+    changeNotes: "PR #25: update domain Info"
   - sha: 995eb386897796d8f1e53de36355d62926024a17
     changeNotes: "PR #24: Deploying issue-based fixes"
   - sha: d68b31a936cd94f0ea75feaff25ac901ad46bd98
