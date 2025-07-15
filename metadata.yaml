@@ -1,5 +1,5 @@
-homepage: "https://toolz.at/?utm_source=google_gtm"
-documentation: "https://toolz.at/?utm_source=google_gtm"
+homepage: "https://consentmode.toolz.at/?utm_source=google_gtm"
+documentation: "https://consentmode.toolz.at/?utm_source=google_gtm"
 versions:
   - sha: 995eb386897796d8f1e53de36355d62926024a17
     changeNotes: "PR #24: Deploying issue-based fixes"
