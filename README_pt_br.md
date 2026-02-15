@@ -21,7 +21,7 @@ O template implementa funcionalidades para gerenciar estados de consentimento do
 
 ## Dependências
 
-- Biblioteca [Consent Management Platform](https://consentmode.toolz.at).
+- Biblioteca [Consent Management Platform](https://consentmodebanner.com).
 
 ## Estrutura do Código
 
@@ -53,7 +53,7 @@ O arquivo principal contém as seguintes funções e métodos:
 
 ## Referências
 
-Para mais informações, consulte a documentação oficial em [Consent Mode](https://consentmode.toolz.at).
+Para mais informações, consulte a documentação oficial em [Consent Mode](https://consentmodebanner.com).
 
 ---
 

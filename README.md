@@ -21,7 +21,7 @@ The template implements functionalities to manage user consent states, set defau
 
 ## Dependencies
 
-- [Consent Management Platform](https://consentmode.toolz.at) library.
+- [Consent Management Platform](https://consentmodebanner.com) library.
 
 ## Code Structure
 
@@ -53,7 +53,7 @@ The main file includes the following functions and methods:
 
 ## References
 
-For more information, refer to the official documentation at [Consent Mode](https://consentmode.toolz.at).
+For more information, refer to the official documentation at [Consent Mode](https://consentmodebanner.com).
 
 ---
 
