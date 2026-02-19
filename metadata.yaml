@@ -1,5 +1,5 @@
-homepage: "https://consentmode.toolz.at/?utm_source=google_gtm"
-documentation: "https://consentmode.toolz.at/?utm_source=google_gtm"
+homepage: "https://consentmodebanner.com/?utm_source=google_gtm"
+documentation: "https://consentmodebanner.com/?utm_source=google_gtm"
 versions:
   - sha: 2d7abd6e518be57d657a5f4b0b1a2952b2769955
     changeNotes: "PR #25: update domain Info"

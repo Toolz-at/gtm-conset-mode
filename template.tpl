@@ -45,7 +45,7 @@ ___TEMPLATE_PARAMETERS___
     "name": "consetModeID",
     "simpleValueType": true,
     "displayName": "Banner ID (Required)",
-    "help": "Get it in: https://consentmode.toolz.at",
+    "help": "Get it in: https://consentmodebanner.com",
     "valueValidators": [
       {
         "type": "NON_EMPTY"
