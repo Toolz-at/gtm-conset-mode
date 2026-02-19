@@ -263,7 +263,7 @@ const main = (consent) => {
 
 main(defaultSettings);
 
-let scriptUrl = 'https://cdn.toolz.at/banner-cmp.js';
+let scriptUrl = 'https://cdn.consentmodebanner.com/banner-cmp.js';
 scriptUrl += '?banner_id=' + encodeUriComponent(data.consetModeID);
 scriptUrl += '&utm_source=gtm';
 
@@ -691,7 +691,7 @@ ___WEB_PERMISSIONS___
             "listItem": [
               {
                 "type": 1,
-                "string": "https://cdn.toolz.at/*"
+                "string": "https://cdn.consentmodebanner.com/*"
               }
             ]
           }
